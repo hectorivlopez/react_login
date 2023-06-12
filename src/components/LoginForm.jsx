@@ -28,28 +28,27 @@ const LoginForm = () => {
 				}
 				else {
 					setInfoCorrect(false)
-
 				}
 			})
 	}
 
 	return (
 		<form onSubmit={(e) => handleSubmit(e)}>
-			<h1>Log in</h1>
+			<h1>Iniciar Sesión</h1>
 
 			<h4 className={`alert ${infoCorrect ? 'hidden' : ''}`}>Correo o contraseña incorrectos</h4>
 			
 			<div className="field">
-				<label htmlFor="email">Email</label>
+				<label htmlFor="email">Correo</label>
 				<input type="email" name='email' id='email' onChange={(e) => { setEmail(e.target.value) }} />
 			</div>
 
 			<div className="field">
-				<label htmlFor="password">Password</label>
+				<label htmlFor="password">Contraseña</label>
 				<input type="password" name='password' id='password' onChange={(e) => { setPassword(e.target.value) }} />
 			</div>
 
-			<button type='submit' className='button'>LOGIN</button>
+			<button type='submit' className='button'>Iniciar Sesión</button>
 		</form>
 	)
 }

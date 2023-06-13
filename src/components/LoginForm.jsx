@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
-import {Navigate, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 
 const LoginForm = () => {
@@ -13,10 +13,10 @@ const LoginForm = () => {
 	function handleSubmit(e) {
 		e.preventDefault()
 		
-
 		const url = 'http://localhost:3000/login.php'
 
 		let loginData = new FormData()
+
 		loginData.append('email', email)
 		loginData.append('password', password)
 		

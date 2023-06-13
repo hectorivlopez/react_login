@@ -16,7 +16,12 @@ $query = "INSERT INTO users (firstName, lastName, email, password) VALUES ('$fir
 $result = mysqli_query($db, $query);
 
 if($result) {
-	echo json_encode(true);
+	echo json_encode([
+		'firstName' => $firstName,
+		'lastName' => $lastName,
+		'email' => $email,
+		'password' => $password,
+	]);
 }
 else {
 	echo json_encode(false);

@@ -5,15 +5,8 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 include('./database.php');
 
-/* if(isset($_POST)) {
-	$email = $_POST['email'];
-	$password = $_POST['password'];
 
-	$query = "INSERT INTO users (email, password, VALUES ('$email', '$password')";
-	$result = mysqli_query($dbs, $query);
-} */
-
-/* if(isset($_POST)) { */
+if(isset($_POST)) {
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 
@@ -31,4 +24,4 @@ include('./database.php');
 	else {
 		echo json_encode(false);
 	}
-/* }  */
+} 

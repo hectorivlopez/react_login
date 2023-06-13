@@ -39,13 +39,12 @@ const SignupForm = () => {
 				axios.post(url, loginData)
 					.then(response => {
 						if (response.data) {
-							navigate('/login')
+							navigate('/', { state: { user: response.data } })
 						}
 						else {
 							setInfoCorrect(false)
 						}
 					})
-					console.log('bien')
 			}
 		}
 	}

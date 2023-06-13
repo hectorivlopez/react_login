@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom'
 const Home = ({user}) => {
 	const navigate = useNavigate()
 	const location = useLocation()
+	console.log(location)
 
 	function logout() {
 		navigate('/', {state: null})

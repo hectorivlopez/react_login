@@ -3,27 +3,29 @@ import logo from '../img/logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
-const Home = ({user}) => {
+const Home = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
-	console.log(location)
+
+	const user = location.state === null ? null : location.state.user
 
 	function logout() {
-		navigate('/', {state: null})
+		navigate('/', { state: null })
 	}
 
 	return (
-		<div>
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<h1>{location.state !== null ? 'Bienvenido ' + location.state.user.firstName : 'React'}</h1>
-				<div className="home-buttons">
-					<Link to='/signup' className={`home-button ${location.state !== null ? 'hidden' : ''}`}>Registrarse</Link>
-					<Link to='/login' className={`home-button ${location.state !== null ? 'hidden' : ''}`}>Iniciar sesión</Link>
-					<button className={`home-button ${location.state === null ? 'hidden' : ''}`} onClick={logout}>Cerrar sesión</button>
+		<div className="App-header">
+			<img src={logo} className={`App-logo ${user !== null ? user.color : ''}`} alt="logo" />
 
-				</div>
-			</header>
+			<h1>{user !== null ? `Bienvenido ${user.firstName} ${user.lastName}` : 'React'}</h1>
+
+			<div className="home-buttons">
+				<Link to='/signup' className={`home-button ${location.state !== null ? 'hidden' : ''}`}>Registrarse</Link>
+
+				<Link to='/login' className={`home-button ${location.state !== null ? 'hidden' : ''}`}>Iniciar sesión</Link>
+
+				<button className={`home-button ${location.state === null ? 'hidden' : ''}`} onClick={logout}>Cerrar sesión</button>
+			</div>
 		</div>
 	)
 }

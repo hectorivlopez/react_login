@@ -5,7 +5,6 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 include('./database.php');
 
-
 if(isset($_POST)) {
 	$email = $_POST['email'];
 	$password = $_POST['password'];
@@ -17,6 +16,7 @@ if(isset($_POST)) {
 		echo json_encode([
 			'firstName' => $user['firstName'],
 			'lastName' => $user['lastName'],
+			'color' => $user['color'],
 			'email' => $user['email'],
 			'password' => $user['password'],
 		]);

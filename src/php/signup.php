@@ -5,24 +5,31 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 include('./database.php');
 
-
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
+$color = $_POST['color'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$query = "INSERT INTO users (firstName, lastName, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
-
+$query = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($db, $query);
 
-if($result) {
-	echo json_encode([
-		'firstName' => $firstName,
-		'lastName' => $lastName,
-		'email' => $email,
-		'password' => $password,
-	]);
-}
-else {
+if($user = mysqli_fetch_assoc($result)) {
 	echo json_encode(false);
 }
+else {
+	$query = "INSERT INTO users (firstName, lastName, color, email, password) VALUES ('$firstName', '$lastName', '$color', '$email', '$password')";
+	$result = mysqli_query($db, $query);
+
+	if ($result) {
+		echo json_encode([
+			'firstName' => $firstName,
+			'lastName' => $lastName,
+			'color' => $color,
+			'email' => $email,
+			'password' => $password,
+		]);
+	}
+}
+
+

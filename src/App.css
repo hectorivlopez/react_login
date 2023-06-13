@@ -50,12 +50,13 @@ a:hover {
 	color: rgb(172, 170, 170);
 }
 
-label {
+label,
+.button {
 	font-weight: 100;
 	font-size: 1.5rem;
 }
 
-input {
+input, select {
 	border: 1px solid rgb(58, 64, 89);
 	background-color: rgb(59, 65, 86);
 	background-color: rgb(44, 49, 70);
@@ -65,7 +66,12 @@ input {
 }
 
 input:focus {
-	outline: 1px solid rgb(164, 164, 164);
+	border: 1px solid rgb(164, 164, 164);
+	outline: none;
+}
+
+select:focus {
+	outline: none;
 }
 
 button {
@@ -81,7 +87,6 @@ button {
 	padding: 1.2rem;
 	border-radius: 0.5rem;
 	color: white;
-	font-weight: 500;
 	margin-top: 4rem;
 	cursor: pointer;
 }
@@ -93,7 +98,7 @@ button {
 
 .container {
 	width: 90%;
-	max-width: 35rem;
+	max-width: 130rem;
 	margin: 0 auto;
 }
 
@@ -101,15 +106,8 @@ button {
 	background-color: rgb(35, 45, 88);
 	margin: 10rem auto;
 	padding: 5rem;
-	width: 50rem;
 	border-radius: 1rem;
-	box-shadow: rgb(8, 13, 39) 0 0.2rem 0.7rem;
 	text-align: center;
-}
-
-.card .button {
-	width: 50%;
-	padding: 1rem;
 }
 
 
@@ -134,6 +132,18 @@ button {
 .App-logo {
 	height: 40vmin;
 	pointer-events: none;
+}
+
+.green {
+	filter: invert(10%) sepia(74%) saturate(557%) hue-rotate(73deg) brightness(98%) contrast(101%);
+}
+
+.red {
+	filter: invert(51%) sepia(13%) saturate(3027%) hue-rotate(315deg) brightness(101%) contrast(95%);
+}
+
+.yellow {
+	filter: invert(51%) sepia(93%) saturate(257%) hue-rotate(25deg) brightness(141%) contrast(95%);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -172,8 +182,9 @@ button {
 	gap: 2rem;
 }
 
-.login {
-	margin: 15rem auto;
+.form {
+	width: 35rem;
+	margin: 2rem auto;
 }
 
 .field {
@@ -193,4 +204,23 @@ button {
 
 .hidden {
 	display: none;
+}
+
+.arrow-link {
+	width: 50px;
+}
+
+.navigation {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.signup-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
 }
